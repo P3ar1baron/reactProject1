@@ -3,8 +3,10 @@ import React from 'react';
 //alternative to person = function () {
 // }
 
-const person = () => {
-    return <p>I'm a person !</p>
+const person = (props) => {
+    return <p>I'm a {props.name} and I am {props.age} !</p>
 };
+
+
 
 export default person;
