@@ -1,53 +1,51 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
 
-const app = props =>  {
-  const [ personsState, setPersonsState] = useState({
+class App extends Component  {
+  state = {
     persons: [
       {name: 'Max', age: 28},
       {name: 'Manu', age: 29},
       {name: 'Stephanie', age: 26}
     ],
-  });
+    otherState: 'some other value'
+  }
 
-  const [otherState, setOtherState] = useState('some other value');
 
-  console.log(personsState, otherState);
 
-  const switchNameHandler = () => {
-    // console.log('Was clicked !');
-    // this.state.persons[0].name = 'Vlad';
-    setPersonsState( {
+switchNameHandler = () => {
+    this.setState( {
       persons: [
-        {name: 'Vlad', age: 28},
-        {name: 'Manu', age: 29},
-        {name: 'Stephanie', age: 26}
-      ],
-    });
-  };
+        {name: 'Vlad', age: 27},
+        {name: 'Manusi', age: 22},
+        {name: 'Steve', age: 25}
+      ]
+    })
+  }
 
-  return (
+
+  render() {
+    return (
     <div className="App">
       <h1>Hi, I'm a React App</h1>
       <p>This is really working</p>
-      <button onClick={switchNameHandler}>Switch Name</button>
+      <button onClick={this.switchNameHandler}>Switch Name</button>
       <Person
-       name={personsState.persons[0].name} 
-       age={personsState.persons[0].age} 
-       />
-      <Person 
-      name={personsState.persons[1].name} 
-      age={personsState.persons[1].age}> 
-      My Hobbies: Racing
-      </Person>
+       name={this.state.persons[0].name} 
+       age={this.state.persons[0].age} /><Person 
+      name={this.state.persons[1].name} 
+      age={this.state.persons[1].age}
+      click = {this.switchNameHandler}>My Hobbies: Racing</Person>
       <Person
-       name={personsState.persons[1].name} 
-       age={personsState.persons[1].age} />
+       name={this.state.persons[1].name} 
+       age={this.state.persons[1].age} />
     </div>
   );
-};
-export default app;
+ }
+}
+
+export default App;
 
 
 
