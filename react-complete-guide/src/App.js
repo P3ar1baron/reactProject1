@@ -56,7 +56,7 @@ switchNameHandler = (newName) => {
       <p>This is really working</p>
       <button 
       style = {style}
-      onClick={this.togglePersonsHandler('Andriy')}>Switch Name</button>
+      onClick={this.togglePersonsHandler}>Toggle Persons</button>
 
   {
 
